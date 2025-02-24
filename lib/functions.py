@@ -651,7 +651,8 @@ def convert_chapters_to_audio(session):
         resume_chapter = 0
         resume_sentence = 0
         missing_sentences = []  # Initialize missing_sentences as an empty list
-
+        missing_chapters = []  # Initialize missing_chapters as an empty list at the start
+        
         existing_chapters = sorted(
             [f for f in os.listdir(session['chapters_dir']) if f.endswith(f'.{default_audio_proc_format}')],
             key=lambda x: int(re.search(r'\d+', x).group())
